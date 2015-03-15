@@ -16,8 +16,8 @@ Install VMware Tools
 Install additional developement packages
  * sudo apt-get install build-essential bison gawk make automake autoconf gcc g++ gcc-multilib g++-multilib gcc-doc flex autogen libtool binutils m4 expect
 
-Install source control tools
- * sudo apt-get install git gitk
+Install source control tools and diff/merge utility
+ * sudo apt-get install git gitk meld
 
 Install GNU ARM development toolchain
  * sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded

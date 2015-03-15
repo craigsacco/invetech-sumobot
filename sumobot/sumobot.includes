@@ -1,0 +1,16 @@
+./include
+../lib/chibios/os/kernel/include
+../lib/chibios/os/hal/include
+../lib/chibios/os/hal/platforms/STM32F4xx
+../lib/chibios/os/hal/platforms/STM32
+../lib/chibios/os/hal/platforms/STM32/GPIOv2
+../lib/chibios/os/hal/platforms/STM32/I2Cv1
+../lib/chibios/os/hal/platforms/STM32/OTGv1
+../lib/chibios/os/hal/platforms/STM32/RTCv2
+../lib/chibios/os/hal/platforms/STM32/SPIv1
+../lib/chibios/os/hal/platforms/STM32/TIMv1
+../lib/chibios/os/hal/platforms/STM32/USARTv1
+../lib/chibios/os/ports/common/ARMCMx/CMSIS/include
+../lib/chibios/os/ports/common/ARMCMx
+../lib/chibios/os/ports/GCC/ARMCMx
+../lib/chibios/os/ports/GCC/ARMCMx/STM32F4xx

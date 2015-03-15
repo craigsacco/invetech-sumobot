@@ -15,3 +15,4 @@
 ../lib/chibios/os/ports/GCC/ARMCMx
 ../lib/chibios/os/ports/GCC/ARMCMx/STM32F4xx
 ../lib/chibios/ext/fatfs/src
+src

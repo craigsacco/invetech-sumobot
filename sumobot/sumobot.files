@@ -1,9 +1,12 @@
 Makefile
+sumobot_stm32f407zg.ld
 .gitignore
 src/main.cpp
+src/board.c
 include/chconf.h
 include/halconf.h
 include/mcuconf.h
+include/board.h
 ../lib/chibios/os/kernel/src/chsys.c
 ../lib/chibios/os/kernel/src/chdebug.c
 ../lib/chibios/os/kernel/src/chlists.c

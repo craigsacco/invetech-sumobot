@@ -27,3 +27,11 @@ Install GNU ARM development toolchain
 Install hardware debugger
  * sudo apt-get install openocd
 
+Install Qt Creator
+ > copy qt-creator-opensource-linux-x86_64-3.3.2.run to the desktop
+ * cd ~/Desktop
+ * sudo qt-creator-opensource-linux-x86_64-3.3.2.run
+ * rm qt-creator-opensource-linux-x86_64-3.3.2.run
+
+Setup Qt Creator
+

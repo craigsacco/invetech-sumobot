@@ -1,6 +1,10 @@
 #include <ch.h>
+#include <hal.h>
 
 int main()
 {
-return 0;
+    chSysInit();
+    halInit();
+
+    return 0;
 }

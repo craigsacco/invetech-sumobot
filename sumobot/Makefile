@@ -25,6 +25,7 @@ ELFFILE         = $(OUTDIR)/$(PRJNAME).elf
 BINFILE         = $(OUTDIR)/$(PRJNAME).bin
 HEXFILE         = $(OUTDIR)/$(PRJNAME).hex
 MAPFILE         = $(OUTDIR)/$(PRJNAME).map
+LSTFILE         = $(OUTDIR)/$(PRJNAME).lst
 
 # common tool flags and macro definitions
 MCUFLAGS        = -mcpu=cortex-m4 -march=armv7e-m -mno-thumb-interwork -mthumb
@@ -32,15 +33,19 @@ MCUDEFINES	= -DTHUMB_NO_INTERWORKING -DTHUMB -DTHUMB_PRESENT
 FPUFLAGS        = -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant
 FPUDEFINES	= -DCORTEX_USE_FPU=TRUE
 DEPFLAGS	= -MD -MP -MF $(DEPDIR)/$(@F).d
-ASMDEFINES	= -Dasm=__asm
 OPTFLAGS	= -O2 -ggdb -fomit-frame-pointer -falign-functions=16 \
 		  -ffunction-sections -fdata-sections -fno-common
 
+# chibios defines - required for compatibility with GCC 4.9
+CHIBIOSDEFINES	= -Dasm=__asm
+
 # compilation/assembler flags
 ASFLAGS         = $(MCUFLAGS) $(FPUFLAGS) $(DEPFLAGS) $(MCUDEFINES) $(FPUDEFINES) \
-		  $(ASMDEFINES) $(OPTFLAGS) $(DEFINES) -x assembler-with-cpp
+		  $(ASMDEFINES) $(OPTFLAGS) $(CHIBIOSDEFINES) $(DEFINES) -x \
+		  assembler-with-cpp
 CCFLAGS         = $(MCUFLAGS) $(FPUFLAGS) $(DEPFLAGS) $(MCUDEFINES) $(FPUDEFINES) \
-		  $(ASMDEFINES) $(OPTFLAGS) $(DEFINES) -Wall -Wextra
+		  $(ASMDEFINES) $(OPTFLAGS) $(CHIBIOSDEFINES) $(DEFINES) -Wall \
+		  -Wextra
 CFLAGS          = $(CCFLAGS) --std=c99 -Wstrict-prototypes
 CPPFLAGS        = $(CCFLAGS) --std=c++11 -fno-rtti -fno-exceptions
 
@@ -68,7 +73,7 @@ OBJS          	= $(AOBJS) $(COBJS) $(CPPOBJS)
 # search paths for files
 VPATH     	= $(dir $(SRC))
 
-all: $(ELFFILE)
+all: $(ELFFILE) $(BINFILE) $(HEXFILE) $(LSTFILE)
 
 clean:
 	rm -rf $(OBJDIR)
@@ -96,3 +101,11 @@ $(CPPOBJS): $(OBJDIR)/%.o : %.cpp $(OBJDIR)
 $(ELFFILE): $(OBJS) $(OUTDIR) $(LDSCRIPT) $(CHIBIOSLIBDIR)
 	$(LD) $(LDFLAGS) $(OBJS) -o $@
 
+$(BINFILE): $(ELFFILE) $(OUTDIR)
+	$(OBJCOPY) -O binary $< $@
+
+$(HEXFILE): $(ELFFILE) $(OUTDIR)
+	$(OBJCOPY) -O ihex $< $@
+
+$(LSTFILE): $(ELFFILE) $(OUTDIR)
+	$(OBJDUMP) -x -D -M force-thumb $< > $@

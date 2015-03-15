@@ -93,35 +93,47 @@
 /*
  * GPIOC setup:
  *
- * PC8  - SDIO_D0                   (alternate 10)
- * PC9  - SDIO_D1                   (alternate 10)
- * PC10 - SDIO_D2                   (alternate 10)
- * PC11 - SDIO_D3                   (alternate 10)
- * PC12 - SDIO_CLK                  (alternate 10)
+ * PC8  - SDIO_D0                   (alternate 12)
+ * PC9  - SDIO_D1                   (alternate 12)
+ * PC10 - SDIO_D2                   (alternate 12)
+ * PC11 - SDIO_D3                   (alternate 12)
+ * PC12 - SDIO_CLK                  (alternate 12)
  */
-#define VAL_GPIOC_MODER             (0)
-#define VAL_GPIOC_OTYPER            (0)
-#define VAL_GPIOC_OSPEEDR           (0)
+#define VAL_GPIOC_MODER             (PIN_MODE_ALTERNATE(8) | \
+                                     PIN_MODE_ALTERNATE(9) | \
+                                     PIN_MODE_ALTERNATE(10) | \
+                                     PIN_MODE_ALTERNATE(11) | \
+                                     PIN_MODE_ALTERNATE(12))
+#define VAL_GPIOC_OTYPER            (PIN_OTYPE_PUSHPULL(8) | \
+                                     PIN_OTYPE_PUSHPULL(9) | \
+                                     PIN_OTYPE_PUSHPULL(10) | \
+                                     PIN_OTYPE_PUSHPULL(11) | \
+                                     PIN_OTYPE_PUSHPULL(12))
+#define VAL_GPIOC_OSPEEDR           (PIN_OSPEED_50M(8) | \
+                                     PIN_OSPEED_50M(9) | \
+                                     PIN_OSPEED_50M(10) | \
+                                     PIN_OSPEED_50M(11) | \
+                                     PIN_OSPEED_50M(12))
 #define VAL_GPIOC_PUPDR             (0)
 #define VAL_GPIOC_ODR               (0)
 #define VAL_GPIOC_AFRL              (0)
-#define VAL_GPIOC_AFRH              (PIN_AFIO_AF(8, 10) | \
-                                     PIN_AFIO_AF(9, 10) | \
-                                     PIN_AFIO_AF(10, 10) | \
-                                     PIN_AFIO_AF(11, 10) | \
-                                     PIN_AFIO_AF(12, 10))
+#define VAL_GPIOC_AFRH              (PIN_AFIO_AF(8, 12) | \
+                                     PIN_AFIO_AF(9, 12) | \
+                                     PIN_AFIO_AF(10, 12) | \
+                                     PIN_AFIO_AF(11, 12) | \
+                                     PIN_AFIO_AF(12, 12))
 
 /*
  * GPIOD setup:
  *
- * PD2  - SDIO_CMD                  (alternate 10)
+ * PD2  - SDIO_CMD                  (alternate 12)
  */
-#define VAL_GPIOD_MODER             (0)
-#define VAL_GPIOD_OTYPER            (0)
-#define VAL_GPIOD_OSPEEDR           (0)
+#define VAL_GPIOD_MODER             (PIN_MODE_ALTERNATE(2))
+#define VAL_GPIOD_OTYPER            (PIN_OTYPE_PUSHPULL(2))
+#define VAL_GPIOD_OSPEEDR           (PIN_OSPEED_50M(2))
 #define VAL_GPIOD_PUPDR             (0)
 #define VAL_GPIOD_ODR               (0)
-#define VAL_GPIOD_AFRL              (0)
+#define VAL_GPIOD_AFRL              (PIN_AFIO_AF(2, 12))
 #define VAL_GPIOD_AFRH              (0)
 
 /*

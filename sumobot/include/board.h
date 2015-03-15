@@ -60,8 +60,8 @@
 /*
  * GPIOA setup:
  *
- * PA13 - SWDIO                     (alternate 0 - JTAG/SWD - SWDIO)
- * PA14 - SWCLK                     (alternate 0 - JTAG/SWD - SWCLK)
+ * PA13 - SWDIO                     (alternate 0)
+ * PA14 - SWCLK                     (alternate 0)
  */
 #define VAL_GPIOA_MODER             (PIN_MODE_ALTERNATE(13) |      \
                                      PIN_MODE_ALTERNATE(14))
@@ -80,7 +80,7 @@
 /*
  * GPIOB setup:
  *
- * PB3  - SWO                       (alternate 0 - JTAG/SWD - SWO).
+ * PB3  - SWO                       (alternate 0)
  */
 #define VAL_GPIOB_MODER             (PIN_MODE_ALTERNATE(3))
 #define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(3))
@@ -92,6 +92,12 @@
 
 /*
  * GPIOC setup:
+ *
+ * PC8  - SDIO_D0                   (alternate 10)
+ * PC9  - SDIO_D1                   (alternate 10)
+ * PC10 - SDIO_D2                   (alternate 10)
+ * PC11 - SDIO_D3                   (alternate 10)
+ * PC12 - SDIO_CLK                  (alternate 10)
  */
 #define VAL_GPIOC_MODER             (0)
 #define VAL_GPIOC_OTYPER            (0)
@@ -99,10 +105,16 @@
 #define VAL_GPIOC_PUPDR             (0)
 #define VAL_GPIOC_ODR               (0)
 #define VAL_GPIOC_AFRL              (0)
-#define VAL_GPIOC_AFRH              (0)
+#define VAL_GPIOC_AFRH              (PIN_AFIO_AF(8, 10) | \
+                                     PIN_AFIO_AF(9, 10) | \
+                                     PIN_AFIO_AF(10, 10) | \
+                                     PIN_AFIO_AF(11, 10) | \
+                                     PIN_AFIO_AF(12, 10))
 
 /*
  * GPIOD setup:
+ *
+ * PD2  - SDIO_CMD                  (alternate 10)
  */
 #define VAL_GPIOD_MODER             (0)
 #define VAL_GPIOD_OTYPER            (0)
@@ -136,11 +148,13 @@
 
 /*
  * GPIOG setup:
+ *
+ * PG8  - SDIO chip detect          (digital input)
  */
-#define VAL_GPIOG_MODER             (0)
+#define VAL_GPIOG_MODER             (PIN_MODE_INPUT(8))
 #define VAL_GPIOG_OTYPER            (0)
 #define VAL_GPIOG_OSPEEDR           (0)
-#define VAL_GPIOG_PUPDR             (0)
+#define VAL_GPIOG_PUPDR             (PIN_PUPDR_FLOATING(8))
 #define VAL_GPIOG_ODR               (0)
 #define VAL_GPIOG_AFRL              (0)
 #define VAL_GPIOG_AFRH              (0)

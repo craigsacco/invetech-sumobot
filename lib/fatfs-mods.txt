@@ -1,3 +1,0 @@
-fatfs-0.09
- * renamed src/ffconf.h to src/ffconf_template.h so that it does not conflict with any user modified configuration header
-

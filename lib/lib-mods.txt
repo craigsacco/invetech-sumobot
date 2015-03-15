@@ -1,0 +1,6 @@
+fatfs-0.11
+ * renamed src/ffconf.h to src/ffconf_template.h so that it does not conflict with any user modified configuration header
+
+chibios-2.6.7
+ * updated os/various/fatfs_bindings/fatfs_diskio.c to work with fatfs 0.11 (function prototype is different from fatfs 0.09)
+

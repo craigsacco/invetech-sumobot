@@ -18,7 +18,7 @@ bool testSDCard()
     DIR dir;
     FILINFO fileinfo;
 
-    res = f_mount(0, &fs);
+    res = f_mount(&fs, "/", 1);
     if (res == FR_OK) {
         res = f_opendir(&dir, "0:/");
         if (res == FR_OK) {
@@ -28,6 +28,7 @@ bool testSDCard()
                     if (fileinfo.fname[0] == 0) {
                         return true;
                     }
+                    // TODO: do something :-)
                 }
                 else {
                     return false;

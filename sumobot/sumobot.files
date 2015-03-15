@@ -4,6 +4,7 @@ sumobot_stm32f407zg.ld
 src/main.cpp
 src/board.c
 include/chconf.h
+include/ffconf.h
 include/halconf.h
 include/mcuconf.h
 include/board.h
@@ -68,3 +69,4 @@ include/board.h
 ../lib/chibios/os/ports/GCC/ARMCMx/chcore.c
 ../lib/chibios/os/ports/GCC/ARMCMx/chcore_v7m.c
 ../lib/chibios/os/ports/common/ARMCMx/nvic.c
+../lib/chibios/ext/fatfs/src/ff.c

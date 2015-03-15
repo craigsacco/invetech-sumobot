@@ -1,4 +1,5 @@
 ./include
+./src
 ../lib/chibios/os/kernel/include
 ../lib/chibios/os/hal/include
 ../lib/chibios/os/hal/platforms/STM32F4xx
@@ -14,5 +15,4 @@
 ../lib/chibios/os/ports/common/ARMCMx
 ../lib/chibios/os/ports/GCC/ARMCMx
 ../lib/chibios/os/ports/GCC/ARMCMx/STM32F4xx
-../lib/chibios/ext/fatfs/src
-src
+../lib/fatfs/src

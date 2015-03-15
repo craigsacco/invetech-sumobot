@@ -70,6 +70,6 @@ include/board.h
 ../lib/chibios/os/ports/GCC/ARMCMx/chcore.c
 ../lib/chibios/os/ports/GCC/ARMCMx/chcore_v7m.c
 ../lib/chibios/os/ports/common/ARMCMx/nvic.c
-../lib/chibios/ext/fatfs/src/ff.c
+../lib/fatfs/src/ff.c
 ../lib/chibios/os/various/fatfs_bindings/fatfs_diskio.c
 ../lib/chibios/os/various/fatfs_bindings/fatfs_syscall.c

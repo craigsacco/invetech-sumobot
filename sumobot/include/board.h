@@ -60,18 +60,24 @@
 /*
  * GPIOA setup:
  *
+ * PA0 - KEY1 Button                (digital output)
  * PA13 - SWDIO                     (alternate 0)
  * PA14 - SWCLK                     (alternate 0)
  */
-#define VAL_GPIOA_MODER             (PIN_MODE_ALTERNATE(13) |      \
+#define VAL_GPIOA_MODER             (PIN_MODE_OUTPUT(0) |          \
+                                     PIN_MODE_ALTERNATE(13) |      \
                                      PIN_MODE_ALTERNATE(14))
-#define VAL_GPIOA_OTYPER            (PIN_OTYPE_PUSHPULL(13) |      \
+#define VAL_GPIOA_OTYPER            (PIN_OTYPE_PUSHPULL(0) |          \
+                                     PIN_OTYPE_PUSHPULL(13) |      \
                                      PIN_OTYPE_PUSHPULL(14))
-#define VAL_GPIOA_OSPEEDR           (PIN_OSPEED_100M(13) |         \
+#define VAL_GPIOA_OSPEEDR           (PIN_OSPEED_2M(0) |         \
+                                     PIN_OSPEED_100M(13) |         \
                                      PIN_OSPEED_100M(14))
-#define VAL_GPIOA_PUPDR             (PIN_PUPDR_FLOATING(13) |      \
+#define VAL_GPIOA_PUPDR             (PIN_PUPDR_FLOATING(0) |         \
+                                     PIN_PUPDR_FLOATING(13) |      \
                                      PIN_PUPDR_FLOATING(14))
-#define VAL_GPIOA_ODR               (PIN_ODR_HIGH(13) |            \
+#define VAL_GPIOA_ODR               (PIN_ODR_HIGH(0) |            \
+                                     PIN_ODR_HIGH(13) |            \
                                      PIN_ODR_HIGH(14))
 #define VAL_GPIOA_AFRL              (0)
 #define VAL_GPIOA_AFRH              (PIN_AFIO_AF(13, 0) |          \
@@ -114,7 +120,11 @@
                                      PIN_OSPEED_50M(10) | \
                                      PIN_OSPEED_50M(11) | \
                                      PIN_OSPEED_50M(12))
-#define VAL_GPIOC_PUPDR             (0)
+#define VAL_GPIOC_PUPDR             (PIN_PUPDR_FLOATING(8) | \
+                                     PIN_PUPDR_FLOATING(9) | \
+                                     PIN_PUPDR_FLOATING(10) | \
+                                     PIN_PUPDR_FLOATING(11) | \
+                                     PIN_PUPDR_FLOATING(12))
 #define VAL_GPIOC_ODR               (0)
 #define VAL_GPIOC_AFRL              (0)
 #define VAL_GPIOC_AFRH              (PIN_AFIO_AF(8, 12) | \
@@ -132,7 +142,7 @@
 #define VAL_GPIOD_OTYPER            (PIN_OTYPE_PUSHPULL(2))
 #define VAL_GPIOD_OSPEEDR           (PIN_OSPEED_50M(2))
 #define VAL_GPIOD_PUPDR             (0)
-#define VAL_GPIOD_ODR               (0)
+#define VAL_GPIOD_ODR               (PIN_PUPDR_FLOATING(12))
 #define VAL_GPIOD_AFRL              (PIN_AFIO_AF(2, 12))
 #define VAL_GPIOD_AFRH              (0)
 
@@ -149,11 +159,13 @@
 
 /*
  * GPIOF setup:
+ *
+ * PF10 - KEY2 Button               (digital input /w pull-up)
  */
-#define VAL_GPIOF_MODER             (0)
+#define VAL_GPIOF_MODER             (PIN_MODE_INPUT(10))
 #define VAL_GPIOF_OTYPER            (0)
 #define VAL_GPIOF_OSPEEDR           (0)
-#define VAL_GPIOF_PUPDR             (0)
+#define VAL_GPIOF_PUPDR             (PIN_PUPDR_PULLUP(10))
 #define VAL_GPIOF_ODR               (0)
 #define VAL_GPIOF_AFRL              (0)
 #define VAL_GPIOF_AFRH              (0)
@@ -161,35 +173,51 @@
 /*
  * GPIOG setup:
  *
- * PG8  - SDIO chip detect          (digital input)
+ * PG8  - SDIO chip detect          (digital input /w pull-down)
  */
 #define VAL_GPIOG_MODER             (PIN_MODE_INPUT(8))
 #define VAL_GPIOG_OTYPER            (0)
 #define VAL_GPIOG_OSPEEDR           (0)
-#define VAL_GPIOG_PUPDR             (PIN_PUPDR_FLOATING(8))
+#define VAL_GPIOG_PUPDR             (PIN_PUPDR_PULLDOWN(8))
 #define VAL_GPIOG_ODR               (0)
 #define VAL_GPIOG_AFRL              (0)
 #define VAL_GPIOG_AFRH              (0)
 
 /*
  * GPIOH setup:
+ *
+ * PH2  - LED1 LED                  (digital output /w pull-down)
+ * PH3  - LED2 LED                  (digital output /w pull-down)
  */
-#define VAL_GPIOH_MODER             (0)
-#define VAL_GPIOH_OTYPER            (0)
-#define VAL_GPIOH_OSPEEDR           (0)
-#define VAL_GPIOH_PUPDR             (0)
-#define VAL_GPIOH_ODR               (0)
+#define VAL_GPIOH_MODER             (PIN_MODE_OUTPUT(2) | \
+                                     PIN_MODE_OUTPUT(3))
+#define VAL_GPIOH_OTYPER            (PIN_OTYPE_PUSHPULL(2) | \
+                                     PIN_OTYPE_PUSHPULL(3))
+#define VAL_GPIOH_OSPEEDR           (PIN_OSPEED_2M(2) | \
+                                     PIN_OSPEED_2M(3))
+#define VAL_GPIOH_PUPDR             (PIN_PUPDR_PULLDOWN(2) | \
+                                     PIN_PUPDR_PULLDOWN(3))
+#define VAL_GPIOH_ODR               (PIN_ODR_HIGH(2) | \
+                                     PIN_ODR_HIGH(3))
 #define VAL_GPIOH_AFRL              (0)
 #define VAL_GPIOH_AFRH              (0)
 
 /*
  * GPIOI setup:
+ *
+ * PH8  - LED3 LED                  (digital output /w pull-down)
+ * PH10 - LED4 LED                  (digital output /w pull-down)
  */
-#define VAL_GPIOI_MODER             (0)
-#define VAL_GPIOI_OTYPER            (0)
-#define VAL_GPIOI_OSPEEDR           (0)
-#define VAL_GPIOI_PUPDR             (0)
-#define VAL_GPIOI_ODR               (0)
+#define VAL_GPIOI_MODER             (PIN_MODE_OUTPUT(8) | \
+                                     PIN_MODE_OUTPUT(10))
+#define VAL_GPIOI_OTYPER            (PIN_OTYPE_PUSHPULL(8) | \
+                                     PIN_OTYPE_PUSHPULL(10))
+#define VAL_GPIOI_OSPEEDR           (PIN_OSPEED_2M(8) | \
+                                     PIN_OSPEED_2M(10))
+#define VAL_GPIOI_PUPDR             (PIN_PUPDR_PULLDOWN(8) | \
+                                     PIN_PUPDR_PULLDOWN(10))
+#define VAL_GPIOI_ODR               (PIN_ODR_HIGH(8) | \
+                                     PIN_ODR_HIGH(10))
 #define VAL_GPIOI_AFRL              (0)
 #define VAL_GPIOI_AFRH              (0)
 

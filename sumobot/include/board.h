@@ -60,23 +60,38 @@
 /*
  * GPIOA setup:
  *
- * PA0 - KEY1 Button                (digital output)
+ * PA0  - KEY1 Button               (digital output)
+ * PA4  - MP3 Codec OREQ            (digital output /w pull-up)
+ * PA5  - MP3 Codec xDCS            (digital output /w pull-up)
+ * PA7  - MP3 Codec xRESET          (digital input /w pull-up)
  * PA13 - SWDIO                     (alternate 0)
  * PA14 - SWCLK                     (alternate 0)
  */
 #define VAL_GPIOA_MODER             (PIN_MODE_OUTPUT(0) |          \
+                                     PIN_MODE_OUTPUT(4) |      \
+                                     PIN_MODE_OUTPUT(5) |      \
+                                     PIN_MODE_INPUT(7) |      \
                                      PIN_MODE_ALTERNATE(13) |      \
                                      PIN_MODE_ALTERNATE(14))
 #define VAL_GPIOA_OTYPER            (PIN_OTYPE_PUSHPULL(0) |          \
+                                     PIN_OTYPE_PUSHPULL(4) |      \
+                                     PIN_OTYPE_PUSHPULL(5) |      \
                                      PIN_OTYPE_PUSHPULL(13) |      \
                                      PIN_OTYPE_PUSHPULL(14))
 #define VAL_GPIOA_OSPEEDR           (PIN_OSPEED_2M(0) |         \
+                                     PIN_OSPEED_2M(4) |         \
+                                     PIN_OSPEED_2M(5) |         \
                                      PIN_OSPEED_100M(13) |         \
                                      PIN_OSPEED_100M(14))
 #define VAL_GPIOA_PUPDR             (PIN_PUPDR_FLOATING(0) |         \
+                                     PIN_PUPDR_PULLUP(4) |      \
+                                     PIN_PUPDR_PULLUP(5) |      \
+                                     PIN_PUPDR_PULLUP(7) |      \
                                      PIN_PUPDR_FLOATING(13) |      \
                                      PIN_PUPDR_FLOATING(14))
 #define VAL_GPIOA_ODR               (PIN_ODR_HIGH(0) |            \
+                                     PIN_ODR_HIGH(4) |            \
+                                     PIN_ODR_HIGH(5) |            \
                                      PIN_ODR_HIGH(13) |            \
                                      PIN_ODR_HIGH(14))
 #define VAL_GPIOA_AFRL              (0)
@@ -87,14 +102,40 @@
  * GPIOB setup:
  *
  * PB3  - SWO                       (alternate 0)
+ * PB12 - MP3 Codec xCS             (digital output /w pull-up)
+ * PB13 - SPI2_CLK (MP3 Codec)      (alternate 5 /w pull-down)
+ * PB14 - SPI2_MISO (MP3 Codec)     (alternate 5 /w pull-down)
+ * PB15 - SPI2_MOSI (MP3 Codec)     (alternate 5 /w pull-down)
  */
-#define VAL_GPIOB_MODER             (PIN_MODE_ALTERNATE(3))
-#define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(3))
-#define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_100M(3))
-#define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(3))
-#define VAL_GPIOB_ODR               (PIN_ODR_HIGH(3))
+#define VAL_GPIOB_MODER             (PIN_MODE_ALTERNATE(3) | \
+                                     PIN_MODE_OUTPUT(12) | \
+                                     PIN_MODE_ALTERNATE(13) | \
+                                     PIN_MODE_ALTERNATE(14) | \
+                                     PIN_MODE_ALTERNATE(15))
+#define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(3) | \
+                                     PIN_OTYPE_PUSHPULL(12) | \
+                                     PIN_OTYPE_PUSHPULL(13) | \
+                                     PIN_OTYPE_PUSHPULL(14) | \
+                                     PIN_OTYPE_PUSHPULL(15))
+#define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_100M(3) | \
+                                     PIN_OSPEED_2M(12) | \
+                                     PIN_OSPEED_100M(13) | \
+                                     PIN_OSPEED_100M(14) | \
+                                     PIN_OSPEED_100M(15))
+#define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(3) | \
+                                     PIN_PUPDR_PULLUP(12) | \
+                                     PIN_PUPDR_PULLDOWN(13) | \
+                                     PIN_PUPDR_PULLDOWN(14) | \
+                                     PIN_PUPDR_PULLDOWN(15))
+#define VAL_GPIOB_ODR               (PIN_ODR_HIGH(3) | \
+                                     PIN_ODR_HIGH(12) | \
+                                     PIN_ODR_HIGH(13) | \
+                                     PIN_ODR_HIGH(14) | \
+                                     PIN_ODR_HIGH(15))
 #define VAL_GPIOB_AFRL              (PIN_AFIO_AF(3, 0))
-#define VAL_GPIOB_AFRH              (0)
+#define VAL_GPIOB_AFRH              (PIN_AFIO_AF(13, 5) | \
+                                     PIN_AFIO_AF(14, 5) | \
+                                     PIN_AFIO_AF(15, 5))
 
 /*
  * GPIOC setup:

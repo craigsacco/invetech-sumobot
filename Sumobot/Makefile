@@ -1,5 +1,5 @@
 # project name
-PRJNAME         = sumobot
+PRJNAME         = Sumobot
 
 # tool commands
 CC              = arm-none-eabi-gcc
@@ -12,13 +12,14 @@ OBJCOPY         = arm-none-eabi-objcopy
 OBJDUMP         = arm-none-eabi-objdump
 
 # library paths
-CHIBIOSDIR	= ../lib/chibios
+CHIBIOSDIR	= ../Libraries/ChibiOS
 CHIBIOSLIBDIR	= $(CHIBIOSDIR)/os/ports/GCC/ARMCMx
+FATFSDIR	= ../Libraries/FatFS
 
 # working and output paths
 OBJDIR          = ./.objs
 DEPDIR          = ./.deps
-OUTDIR          = ./output
+OUTDIR          = ./Output
 
 # final target files
 ELFFILE         = $(OUTDIR)/$(PRJNAME).elf
@@ -50,19 +51,20 @@ CFLAGS          = $(CCFLAGS) --std=c99 -Wstrict-prototypes
 CPPFLAGS        = $(CCFLAGS) --std=c++11 -fno-rtti -fno-exceptions
 
 # linker flags
-LDSCRIPT	= ./sumobot_stm32f407zg.ld
+LDSCRIPT	= ./LinkerScripts/Sumobot_STM32F407xE.ld
 LDFLAGS         = $(MCUFLAGS) $(FPUFLAGS) $(OPTFLAGS) -nostartfiles \
 		  -Wl,-Map=$(MAPFILE) -Wl,--no-warn-mismatch -Wl,--gc-sections \
 		  -Wl,--script=$(LDSCRIPT) -Wl,--cref \
 		  -Wl,--library-path=$(CHIBIOSLIBDIR)
+
 # assembly and C/C++ source
-ASRC            = $(shell grep '.s$$' sumobot.files)
-CSRC            = $(shell grep '.c$$' sumobot.files)
-CPPSRC          = $(shell grep '.cpp$$' sumobot.files)
+ASRC            = $(shell grep '.s$$' Sumobot.files)
+CSRC            = $(shell grep '.c$$' Sumobot.files)
+CPPSRC          = $(shell grep '.cpp$$' Sumobot.files)
 SRC		= $(ASRC) $(CSRC) $(CPPSRC)
 
 # include folders
-INCDIR          = $(addprefix -I,$(shell cat sumobot.includes))
+INCDIR          = $(addprefix -I,$(shell cat Sumobot.includes))
 
 # intermediate file paths
 AOBJS           = $(addprefix $(OBJDIR)/,$(notdir $(ASRC:.s=.o)))

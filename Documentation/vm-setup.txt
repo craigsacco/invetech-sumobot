@@ -22,7 +22,7 @@ Install source control tools and diff/merge utility
 Install GNU ARM development toolchain
  * sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded
  * sudo apt-get update
- * sudo apt-get install gcc-arm-none-eabi=4.9.3.2014q4-0trusty12
+ * sudo apt-get install gcc-arm-none-eabi=4.9.3.2015q1-0trusty13
 
 Install hardware debugger
  * sudo apt-get install openocd

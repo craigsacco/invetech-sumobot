@@ -1,0 +1,17 @@
+./Include
+../Libraries/ChibiOS/os/kernel/include
+../Libraries/ChibiOS/os/hal/include
+../Libraries/ChibiOS/os/hal/platforms/STM32F4xx
+../Libraries/ChibiOS/os/hal/platforms/STM32
+../Libraries/ChibiOS/os/hal/platforms/STM32/GPIOv2
+../Libraries/ChibiOS/os/hal/platforms/STM32/I2Cv1
+../Libraries/ChibiOS/os/hal/platforms/STM32/OTGv1
+../Libraries/ChibiOS/os/hal/platforms/STM32/RTCv2
+../Libraries/ChibiOS/os/hal/platforms/STM32/SPIv1
+../Libraries/ChibiOS/os/hal/platforms/STM32/TIMv1
+../Libraries/ChibiOS/os/hal/platforms/STM32/USARTv1
+../Libraries/ChibiOS/os/ports/common/ARMCMx/CMSIS/include
+../Libraries/ChibiOS/os/ports/common/ARMCMx
+../Libraries/ChibiOS/os/ports/GCC/ARMCMx
+../Libraries/ChibiOS/os/ports/GCC/ARMCMx/STM32F4xx
+../Libraries/FatFS/src

@@ -2,6 +2,7 @@
 #define __UCPP_MICROCONTROLLER_HPP__
 
 #include "InternalGPIO.hpp"
+#include "SPI.hpp"
 #include <hal.h>
 
 namespace uCpp
@@ -20,33 +21,51 @@ public:
     private: \
         InternalGPIO m##name { driver };
 #ifdef STM32F40_41xxx
-#ifdef STM32_HAS_GPIOA
+#if STM32_HAS_GPIOA
 MCU_DEFINE_GPIO(GPIOA, GPIOA)
-#endif // #ifdef STM32_HAS_GPIOA
-#ifdef STM32_HAS_GPIOB
+#endif // #if STM32_HAS_GPIOA
+#if STM32_HAS_GPIOB
 MCU_DEFINE_GPIO(GPIOB, GPIOB)
-#endif // #ifdef STM32_HAS_GPIOB
-#ifdef STM32_HAS_GPIOC
+#endif // #if STM32_HAS_GPIOB
+#if STM32_HAS_GPIOC
 MCU_DEFINE_GPIO(GPIOC, GPIOC)
-#endif // #ifdef STM32_HAS_GPIOC
-#ifdef STM32_HAS_GPIOD
+#endif // #if STM32_HAS_GPIOC
+#if STM32_HAS_GPIOD
 MCU_DEFINE_GPIO(GPIOD, GPIOD)
-#endif // #ifdef STM32_HAS_GPIOA
-#ifdef STM32_HAS_GPIOE
+#endif // #if STM32_HAS_GPIOA
+#if STM32_HAS_GPIOE
 MCU_DEFINE_GPIO(GPIOE, GPIOE)
-#endif // #ifdef STM32_HAS_GPIOE
-#ifdef STM32_HAS_GPIOF
+#endif // #if STM32_HAS_GPIOE
+#if STM32_HAS_GPIOF
 MCU_DEFINE_GPIO(GPIOF, GPIOF)
-#endif // #ifdef STM32_HAS_GPIOF
-#ifdef STM32_HAS_GPIOG
+#endif // #if STM32_HAS_GPIOF
+#if STM32_HAS_GPIOG
 MCU_DEFINE_GPIO(GPIOG, GPIOG)
-#endif // #ifdef STM32_HAS_GPIOG
-#ifdef STM32_HAS_GPIOH
+#endif // #if STM32_HAS_GPIOG
+#if STM32_HAS_GPIOH
 MCU_DEFINE_GPIO(GPIOH, GPIOH)
-#endif // #ifdef STM32_HAS_GPIOH
-#ifdef STM32_HAS_GPIOI
+#endif // #if STM32_HAS_GPIOH
+#if STM32_HAS_GPIOI
 MCU_DEFINE_GPIO(GPIOI, GPIOI)
-#endif // #ifdef STM32_HAS_GPIOI
+#endif // #if STM32_HAS_GPIOI
+#endif // #ifdef STM32F40_41xxx
+
+// SPI definitions
+#define MCU_DEFINE_SPI(name, driver) \
+    public: \
+        inline SPI* Get##name() { return &m##name; } \
+    private: \
+        SPI m##name { &driver };
+#ifdef STM32F40_41xxx
+#if STM32_SPI_USE_SPI1
+MCU_DEFINE_SPI(SPI1, SPID1)
+#endif // #if STM32_SPI_USE_SPI1
+#if STM32_SPI_USE_SPI2
+MCU_DEFINE_SPI(SPI2, SPID2)
+#endif // #if STM32_SPI_USE_SPI2
+#if STM32_SPI_USE_SPI3
+MCU_DEFINE_SPI(SPI3, SPID3)
+#endif // #if STM32_SPI_USE_SPI3
 #endif // #ifdef STM32F40_41xxx
 };
 

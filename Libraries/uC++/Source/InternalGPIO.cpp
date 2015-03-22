@@ -3,6 +3,8 @@
 namespace uCpp
 {
 
+#if HAL_USE_PAL
+
 InternalGPIO::InternalGPIO(ioportid_t port) :
     mPort(port)
 {
@@ -11,6 +13,11 @@ InternalGPIO::InternalGPIO(ioportid_t port) :
 uint8_t InternalGPIO::GetWidth() const
 {
     return 16U;
+}
+
+bool InternalGPIO::IsOnMicro() const
+{
+    return true;
 }
 
 uint32_t InternalGPIO::GetPort() const
@@ -47,5 +54,12 @@ void InternalGPIO::ClearPad(uint8_t index)
 {
     palClearPad(mPort, index);
 }
+
+ioportid_t InternalGPIO::GetIOPort()
+{
+    return mPort;
+}
+
+#endif // #if HAL_USE_PAL
 
 }

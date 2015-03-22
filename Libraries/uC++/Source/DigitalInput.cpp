@@ -14,4 +14,14 @@ bool DigitalInput::Get() const
     return mGPIO->GetPad(mIndex);
 }
 
+IGPIO* DigitalInput::GetGPIO() const
+{
+    return mGPIO;
+}
+
+uint8_t DigitalInput::GetIndex() const
+{
+    return mIndex;
+}
+
 }

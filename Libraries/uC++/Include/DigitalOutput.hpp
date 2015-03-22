@@ -17,6 +17,8 @@ public:
     inline bool Get() const;
     inline void Set(bool state = true);
     inline void Clear();
+    inline IGPIO* GetGPIO() const;
+    inline uint8_t GetIndex() const;
 
 private:
     IGPIO* mGPIO;

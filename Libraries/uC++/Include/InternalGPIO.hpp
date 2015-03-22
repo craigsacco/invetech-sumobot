@@ -7,6 +7,8 @@
 namespace uCpp
 {
 
+#if HAL_USE_PAL
+
 class InternalGPIO : public IGPIO
 {
 public:
@@ -15,6 +17,7 @@ public:
 
 public:
     inline uint8_t GetWidth() const override final;
+    inline bool IsOnMicro() const override final;
     inline uint32_t GetPort() const override final;
     inline uint32_t GetLatch() const override final;
     inline void SetPort(uint32_t value) override final;
@@ -22,10 +25,13 @@ public:
     inline bool GetPad(uint8_t index) const override final;
     inline void SetPad(uint8_t index, bool state = true) override final;
     inline void ClearPad(uint8_t index) override final;
+    ioportid_t GetIOPort();
 
 private:
     ioportid_t mPort;
 };
+
+#endif // #if HAL_USE_PAL
 
 }
 

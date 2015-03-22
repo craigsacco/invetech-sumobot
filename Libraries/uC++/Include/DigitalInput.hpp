@@ -15,6 +15,8 @@ public:
 
 public:
     inline bool Get() const;
+    inline IGPIO* GetGPIO() const;
+    inline uint8_t GetIndex() const;
 
 private:
     IGPIO* mGPIO;

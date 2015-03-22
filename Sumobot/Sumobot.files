@@ -160,6 +160,8 @@ Resources/MP3/TestAudio.c
 ../Libraries/uC++/Include/IGPIO.hpp
 ../Libraries/uC++/Include/InternalGPIO.hpp
 ../Libraries/uC++/Include/Microcontroller.hpp
+../Libraries/uC++/Include/SPI.hpp
 ../Libraries/uC++/Source/DigitalInput.cpp
 ../Libraries/uC++/Source/DigitalOutput.cpp
 ../Libraries/uC++/Source/InternalGPIO.cpp
+../Libraries/uC++/Source/SPI.cpp

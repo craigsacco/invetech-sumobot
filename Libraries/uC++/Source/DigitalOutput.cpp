@@ -24,4 +24,14 @@ void DigitalOutput::Clear()
     mGPIO->ClearPad(mIndex);
 }
 
+IGPIO* DigitalOutput::GetGPIO() const
+{
+    return mGPIO;
+}
+
+uint8_t DigitalOutput::GetIndex() const
+{
+    return mIndex;
+}
+
 }

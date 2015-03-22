@@ -10,6 +10,7 @@ class IGPIO
 {
 public:
     virtual uint8_t GetWidth() const = 0;
+    virtual bool IsOnMicro() const = 0;
     virtual uint32_t GetPort() const = 0;
     virtual uint32_t GetLatch() const = 0;
     virtual void SetPort(uint32_t value) = 0;

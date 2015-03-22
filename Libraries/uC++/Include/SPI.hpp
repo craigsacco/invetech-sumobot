@@ -17,9 +17,11 @@ public:
     ~SPI() {}
 
 public:
-#ifdef STM32F40_41xxx
     struct Config
     {
+        //! digital output for chip selection
+        DigitalOutput* ChipSelect = nullptr;
+#ifdef STM32F40_41xxx
         //! baud rate selection options
         enum BaudRateSelection_t
         {
@@ -32,22 +34,22 @@ public:
             PeripheralClockDiv128, // 328.125kHz
             PeripheralClockDiv256, // 164062.5kHz
         };
-        //! digital output for chip selection
-        DigitalOutput* ChipSelect = nullptr;
         //! set if second clock transition is capture edge (by default it is first clock transition)
         bool ClockPhase = false;
         //! set if line is high when idle (by default it is low)
         bool ClockPolarity = false;
         //! baud rate selection
-        BaudRateSelection_t BaudRateSelection = PeripheralClockDiv256;
+        BaudRateSelection_t BaudRate = PeripheralClockDiv256;
         //! set if sending LSB first (by default it is MSB sent first)
         bool SendLSBFirst = false;
         //! set if using wide 16-bit frames (by default it is 8)
         bool FrameFormat = false;
         //! value to set for the CRCPR register
         uint16_t CRCPolynomial = 7;
-    };
+#else
+        typedef uint32_t BaudRateSelection_t;
 #endif // #ifdef STM32F40_41xxx
+    };
 
 public:
     inline void Start(Config config);
@@ -59,6 +61,10 @@ public:
     inline void Exchange(void* txbuf, void* rxbuf, size_t len);
     inline void Acquire();
     inline void Release();
+
+public:
+    static Config::BaudRateSelection_t GetBaudRateSelection(
+        uint32_t frequency);
 
 private:
     SPIDriver* mSPI;

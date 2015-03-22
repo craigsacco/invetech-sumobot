@@ -34,7 +34,7 @@ MCUDEFINES	= -DTHUMB_NO_INTERWORKING -DTHUMB -DTHUMB_PRESENT
 FPUFLAGS        = -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fsingle-precision-constant
 FPUDEFINES	= -DCORTEX_USE_FPU=TRUE
 DEPFLAGS	= -MD -MP -MF $(DEPDIR)/$(@F).d
-OPTFLAGS	= -O2 -ggdb -fomit-frame-pointer -falign-functions=16 \
+OPTFLAGS	= -Og -ggdb -fomit-frame-pointer -falign-functions=16 \
 		  -ffunction-sections -fdata-sections -fno-common
 
 # chibios defines - required for compatibility with GCC 4.9

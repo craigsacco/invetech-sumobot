@@ -37,23 +37,23 @@
 #define SDIO_CHIP_DETECT_GET()          (palReadPad(SDIO_CHIP_DETECT_PORT, SDIO_CHIP_DETECT_PIN) == 0) // active-low
 
 #define MP3_CODEC_DRIVER                SPID2
-#define MP3_CODEC_CHIP_SELECT_PORT      GPIOB
-#define MP3_CODEC_CHIP_SELECT_PIN       12
-#define MP3_CODEC_OREQ_PORT             GPIOA
-#define MP3_CODEC_OREQ_PIN              7
-#define MP3_CODEC_RESET_PORT            GPIOA
-#define MP3_CODEC_RESET_PIN             5
-#define MP3_CODEC_DCS_PORT              GPIOA
-#define MP3_CODEC_DCS_PIN               4
+#define MP3_CODEC_nCS_PORT              GPIOB
+#define MP3_CODEC_nCS_PIN               12
+#define MP3_CODEC_DREQ_PORT             GPIOA
+#define MP3_CODEC_DREQ_PIN              7
+#define MP3_CODEC_nRESET_PORT           GPIOA
+#define MP3_CODEC_nRESET_PIN            5
+#define MP3_CODEC_nDCS_PORT             GPIOA
+#define MP3_CODEC_nDCS_PIN              4
 
-#define MP3_CODEC_CHIP_SELECT_GET()     (palReadPad(MP3_CODEC_CHIP_SELECT_PORT, MP3_CODEC_CHIP_SELECT_PIN) == 0) // active-low
-#define MP3_CODEC_OREQ_GET()            palReadPad(MP3_CODEC_OREQ_PORT, MP3_CODEC_OREQ_PIN)
-#define MP3_CODEC_RESET_GET()           (palReadPad(MP3_CODEC_RESET_PORT, MP3_CODEC_RESET_PIN) == 0) // active-low
-#define MP3_CODEC_DCS_GET()             (palReadPad(MP3_CODEC_DCS_PORT, MP3_CODEC_DCS_PIN) == 0) // active-low
+#define MP3_CODEC_nCS_GET()             (palReadPad(MP3_CODEC_nCS_PORT, MP3_CODEC_nCS_PIN))
+#define MP3_CODEC_DREQ_GET()            (palReadPad(MP3_CODEC_DREQ_PORT, MP3_CODEC_DREQ_PIN))
+#define MP3_CODEC_nRESET_GET()          (palReadPad(MP3_CODEC_nRESET_PORT, MP3_CODEC_nRESET_PIN))
+#define MP3_CODEC_nDCS_GET()            (palReadPad(MP3_CODEC_nDCS_PORT, MP3_CODEC_nDCS_PIN))
 
-#define MP3_CODEC_CHIP_SELECT_SET(on)   palWritePad(MP3_CODEC_CHIP_SELECT_PORT, MP3_CODEC_CHIP_SELECT_PIN, on ? 0 : 1) // active-low
-#define MP3_CODEC_RESET_SET(on)         palWritePad(MP3_CODEC_RESET_PORT, MP3_CODEC_RESET_PIN, on ? 0 : 1) // active-low
-#define MP3_CODEC_DCS_SET(on)           palWritePad(MP3_CODEC_DCS_PORT, MP3_CODEC_DCS_PIN, on ? 0 : 1) // active-low
+#define MP3_CODEC_nCS_SET(on)           palWritePad(MP3_CODEC_nCS_PORT, MP3_CODEC_nCS_PIN, on ? 1 : 0)
+#define MP3_CODEC_nRESET_SET(on)        palWritePad(MP3_CODEC_nRESET_PORT, MP3_CODEC_nRESET_PIN, on ? 1 : 0)
+#define MP3_CODEC_nDCS_SET(on)          palWritePad(MP3_CODEC_nDCS_PORT, MP3_CODEC_nDCS_PIN, on ? 1 : 0)
 
 #endif // SUMOBOT_H
 

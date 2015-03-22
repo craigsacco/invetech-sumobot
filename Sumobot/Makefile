@@ -46,7 +46,7 @@ ASFLAGS         = $(MCUFLAGS) $(FPUFLAGS) $(DEPFLAGS) $(MCUDEFINES) $(FPUDEFINES
 		  assembler-with-cpp
 CCFLAGS         = $(MCUFLAGS) $(FPUFLAGS) $(DEPFLAGS) $(MCUDEFINES) $(FPUDEFINES) \
 		  $(ASMDEFINES) $(OPTFLAGS) $(CHIBIOSDEFINES) $(DEFINES) -Wall \
-		  -Wextra
+		  -Wextra -Wfatal-errors
 CFLAGS          = $(CCFLAGS) --std=c99 -Wstrict-prototypes
 CPPFLAGS        = $(CCFLAGS) --std=c++11 -fno-rtti -fno-exceptions
 
@@ -54,7 +54,7 @@ CPPFLAGS        = $(CCFLAGS) --std=c++11 -fno-rtti -fno-exceptions
 LDSCRIPT	= ./LinkerScripts/Sumobot_STM32F407xE.ld
 LDFLAGS         = $(MCUFLAGS) $(FPUFLAGS) $(OPTFLAGS) -nostartfiles \
 		  -Wl,-Map=$(MAPFILE) -Wl,--no-warn-mismatch -Wl,--gc-sections \
-		  -Wl,--script=$(LDSCRIPT) -Wl,--cref \
+		  -Wl,--script=$(LDSCRIPT) -Wl,--cref -Wl,--fatal-warnings \
 		  -Wl,--library-path=$(CHIBIOSLIBDIR)
 
 # assembly and C/C++ source

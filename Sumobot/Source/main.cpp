@@ -3,6 +3,8 @@
 #include <ff.h>
 #include <sumobot.h>
 
+#include <Microcontroller.hpp>
+
 bool initSDCard()
 {
     static SDCConfig config { .dummy = 0 };
@@ -228,6 +230,8 @@ int main()
 {
     halInit();
     chSysInit();
+
+    uCpp::Microcontroller micro;
 
     /*
     if (initSDCard()) {

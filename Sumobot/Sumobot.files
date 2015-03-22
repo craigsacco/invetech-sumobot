@@ -155,3 +155,11 @@ Resources/MP3/TestAudio.c
 ../Libraries/FatFS/src/ff.c
 ../Libraries/FatFS/src/ff.h
 ../Libraries/FatFS/src/integer.h
+../Libraries/uC++/Include/DigitalInput.hpp
+../Libraries/uC++/Include/DigitalOutput.hpp
+../Libraries/uC++/Include/IGPIO.hpp
+../Libraries/uC++/Include/InternalGPIO.hpp
+../Libraries/uC++/Include/Microcontroller.hpp
+../Libraries/uC++/Source/DigitalInput.cpp
+../Libraries/uC++/Source/DigitalOutput.cpp
+../Libraries/uC++/Source/InternalGPIO.cpp

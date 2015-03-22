@@ -1,5 +1,6 @@
 .gitignore
 Makefile
+LinkerScripts/Sumobot_STM32F407xE.ld
 LinkerScripts/Sumobot_STM32F407xG.ld
 Source/main.cpp
 Source/board.c

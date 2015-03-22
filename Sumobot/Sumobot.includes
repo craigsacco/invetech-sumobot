@@ -1,4 +1,6 @@
+./
 ./Include
+./Source
 ../Libraries/ChibiOS/os/kernel/include
 ../Libraries/ChibiOS/os/hal/include
 ../Libraries/ChibiOS/os/hal/platforms/STM32F4xx

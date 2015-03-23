@@ -1,6 +1,8 @@
 #include "DigitalOutput.hpp"
 
-namespace uCpp
+namespace NS_UCPP
+{
+namespace NS_UCPP_HAL
 {
 
 DigitalOutput::DigitalOutput(IGPIO* gpio, uint8_t index) :
@@ -34,4 +36,5 @@ uint8_t DigitalOutput::GetIndex() const
     return mIndex;
 }
 
+}
 }

@@ -1,10 +1,13 @@
 #ifndef __UCPP_DIGITALOUTPUT_HPP__
 #define __UCPP_DIGITALOUTPUT_HPP__
 
+#include "uCCommon.hpp"
 #include "IGPIO.hpp"
 #include <hal.h>
 
-namespace uCpp
+namespace NS_UCPP
+{
+namespace NS_UCPP_HAL
 {
 
 class DigitalOutput
@@ -14,17 +17,18 @@ public:
     ~DigitalOutput() {}
 
 public:
-    inline bool Get() const;
-    inline void Set(bool state = true);
-    inline void Clear();
-    inline IGPIO* GetGPIO() const;
-    inline uint8_t GetIndex() const;
+    bool Get() const;
+    void Set(bool state = true);
+    void Clear();
+    IGPIO* GetGPIO() const;
+    uint8_t GetIndex() const;
 
 private:
     IGPIO* mGPIO;
     uint8_t mIndex;
 };
 
+}
 }
 
 #endif // #ifndef __UCPP_DIGITALOUTPUT_HPP__

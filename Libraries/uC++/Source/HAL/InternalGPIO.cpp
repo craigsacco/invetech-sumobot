@@ -1,6 +1,8 @@
 #include "InternalGPIO.hpp"
 
-namespace uCpp
+namespace NS_UCPP
+{
+namespace NS_UCPP_HAL
 {
 
 #if HAL_USE_PAL
@@ -62,4 +64,5 @@ ioportid_t InternalGPIO::GetIOPort()
 
 #endif // #if HAL_USE_PAL
 
+}
 }

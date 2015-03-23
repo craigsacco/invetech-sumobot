@@ -1,6 +1,8 @@
 #include "DigitalInput.hpp"
 
-namespace uCpp
+namespace NS_UCPP
+{
+namespace NS_UCPP_HAL
 {
 
 DigitalInput::DigitalInput(IGPIO* gpio, uint8_t index) :
@@ -24,4 +26,5 @@ uint8_t DigitalInput::GetIndex() const
     return mIndex;
 }
 
+}
 }

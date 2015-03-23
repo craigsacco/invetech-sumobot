@@ -231,7 +231,7 @@ int main()
     halInit();
     chSysInit();
 
-    uCpp::Microcontroller micro;
+    uCpp::HAL::Microcontroller micro;
 
     /*
     if (initSDCard()) {

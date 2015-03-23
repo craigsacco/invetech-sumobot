@@ -18,4 +18,7 @@
 ../Libraries/ChibiOS/os/ports/GCC/ARMCMx/STM32F4xx
 ../Libraries/FatFS/src
 ../Libraries/uC++/Include
+../Libraries/uC++/Include/Devices
+../Libraries/uC++/Include/HAL
+../Libraries/uC++/Include/OS
 Resources/MP3

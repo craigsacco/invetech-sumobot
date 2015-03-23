@@ -1,9 +1,11 @@
 #ifndef __UCPP_IGPIO_HPP__
 #define __UCPP_IGPIO_HPP__
 
-#include <stdint.h>
+#include "uCCommon.hpp"
 
-namespace uCpp
+namespace NS_UCPP
+{
+namespace NS_UCPP_HAL
 {
 
 class IGPIO
@@ -20,6 +22,7 @@ public:
     virtual void ClearPad(uint8_t index) = 0;
 };
 
+}
 }
 
 #endif // #ifndef __UCPP_IGPIO_HPP__

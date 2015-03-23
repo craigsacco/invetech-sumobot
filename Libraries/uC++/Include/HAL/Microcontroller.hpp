@@ -1,11 +1,14 @@
 #ifndef __UCPP_MICROCONTROLLER_HPP__
 #define __UCPP_MICROCONTROLLER_HPP__
 
+#include "uCCommon.hpp"
 #include "InternalGPIO.hpp"
 #include "SPI.hpp"
 #include <hal.h>
 
-namespace uCpp
+namespace NS_UCPP
+{
+namespace NS_UCPP_HAL
 {
 
 class Microcontroller
@@ -69,6 +72,7 @@ MCU_DEFINE_SPI(SPI3, SPID3)
 #endif // #ifdef STM32F40_41xxx
 };
 
+}
 }
 
 #endif // #ifndef __UCPP_MICROCONTROLLER_HPP__
